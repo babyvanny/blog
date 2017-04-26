@@ -1,11 +1,247 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
-<html lang="zh">
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
     <meta charset="utf-8">
     <title>vanny</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 移动端要加下面的代码 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="./libs/animate.css">
 </head>
 <body>
-个人博客
+<style type="text/css">
+/* TODO: 重置样式, 以后引入一个全面的 */
+html {
+    /*font-size: 14px;*/
+    /* chrome/safari 等 webkit 内核的浏览器 */
+    /*font-size: 83.3333%;*/
+    /* TODO: firefox 有待调整*/
+    /*font-size: 83.3333%;*/
+}
+html, body {
+    margin: 0;
+    background: #FAFAFA;
+    color: #999;
+}
+/* 工具类 */
+.clear:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.tl {
+    text-align: left !important;
+}
+.tc {
+    text-align: center !important;
+}
+.tr {
+    text-align: right !important;
+}
+.hidden {
+    display: none !important;
+}
+
+/* 样式 */
+nav {
+    border: solid 1px #007EF6;
+    border-radius: 4px;
+    margin: 10px;
+    margin-top: 15px;
+    background: white;
+}
+    nav span {
+        display: inline-block;
+        width: 50%;
+        float: left;
+        color: #007EF6;
+        text-align: center;
+        box-sizing: border-box;
+        padding: 6px 0;
+        font-size: 14px;
+    }
+    nav span.active {
+        background: #007EF6;
+        color: white;
+    }
+
+.arts {
+    margin: 10px;
+}
+    .arts .art {
+        background: white;
+        border: solid 1px transparent;
+        border-radius: 4px;
+        box-shadow: 0px 2px 2px #ddd;
+        padding: 8px 15px;
+        font-size: 14px;
+        margin-top: 10px;
+    }
+    .arts .fa-eye {
+        color: #007EF6;
+        float: right;
+        margin-top: 2px;
+    }
+
+
+.user-info {
+    margin: 10px;
+    border: solid 1px transparent;
+    border-radius: 4px;
+    background: white;
+    box-shadow: 0px 2px 2px #ddd;
+    padding-bottom: 20px;
+}
+    .user-info .banner {
+        border: solid 1px transparent;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        position: relative;
+    }
+        .user-info .banner .banner-img {
+            height: 150px;
+            overflow: hidden;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+        }
+        .user-info .banner img {
+            width: 100%;
+        }
+    .user-info .user-fav-icon {
+        width: 80px;
+        height: 80px;
+        border-radius: 80px;
+        background: white;
+        position: absolute;
+        left: 50%;
+        margin-left: -40px;
+        bottom: -40px;
+    }
+    .user-info .detail {
+        margin-top: 55px;
+    }
+    .user-info h4 {
+        font-size: 20px;
+        color: #333;
+        text-align: center;
+        margin: 0;
+    }
+    .user-info .detail .fa-venus {
+        color: #FF60AF;
+        font-size: 18px;
+    }
+    .user-info .detail .phone {
+        font-size: 12px;
+        margin-top: 4px;
+        color: #aaa;
+    }
+    .user-info .detail .phone:after {
+        content: "";
+        display: block;
+        background: #aaa;
+        height: 1px;
+        margin: 15px 30px;
+    }
+    .user-info .info {
+        padding: 10px 45px;
+        font-size: 14px;
+    }
+    .user-info .info span {
+        display: inline-block;
+    }
+        .user-info .info span:first-child {
+            width: 30%;
+            vertical-align: top;
+        }
+        .user-info .info span:last-child {
+            width: 60%;
+            text-align: cneter;
+            white-space: nowrap;
+            text-overflow: hidden;
+            overflow: hidden;
+        }
+</style>
+
+<nav class="clear">
+    <span onclick="switchPage(event, 'js-user-info')"  class="active">个人信息</span>
+    <span onclick="switchPage(event, 'js-arts')">作品列表</span>
+</nav>
+
+<div id="js-user-info" class="user-info animated">
+    <div class="banner">
+        <div class="banner-img"><img src="./imgs/star_party.jpeg"></div>
+        <div class="user-fav-icon"></div>
+    </div>
+    <div class="detail">
+        <h4>
+            <span>韩李敏</span>
+            <i class="fa fa-venus" aria-hidden="true"></i>
+        </h4>
+        <div class="phone tc">手机号:18401687818</div>
+        <div class="info">
+            <span>年龄</span>
+            <span class="tc">27</span>
+        </div>
+        <div class="info">
+            <span>经验</span>
+            <span class="tc">3年</span>
+        </div>
+        <div class="info">
+            <span>学校</span>
+            <span class="tc">湖北工业大学商贸学院</span>
+        </div>
+        <div class="info">
+            <span>邮箱</span>
+            <span class="tc">290288575@qq.com</span>
+        </div>
+    </div>
+</div>
+
+<div id="js-arts" class="arts animated hidden">
+    <div class="art">
+        <span>作品名称</span>
+        <i class="fa fa-eye" aria-hidden="true"></i>
+    </div>
+    <div class="art">
+        <span>作品名称</span>
+        <i class="fa fa-eye" aria-hidden="true"></i>
+    </div>
+    <div class="art">
+        <span>作品名称</span>
+        <i class="fa fa-eye" aria-hidden="true"></i>
+    </div>
+    <div class="art">
+        <span>作品名称</span>
+        <i class="fa fa-eye" aria-hidden="true"></i>
+    </div>
+    <div class="art">
+        <span>作品名称</span>
+        <i class="fa fa-eye" aria-hidden="true"></i>
+    </div>
+</div>
+
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript">
+// 当前页面id
+var currentPageId = "js-user-info";
+
+// 切换页面
+var switchPage = function (e, id) {
+    // 导航激活状态切换
+    $(e.target).addClass("active").siblings().removeClass("active");
+    // 页面切换
+    var $currentPage = $("#" + currentPageId);
+    var $page = $("#" + id);
+    $currentPage.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+        $currentPage.addClass("hidden").removeClass("bounceOut");
+        $currentPage.unbind();
+        $page.removeClass("hidden").addClass("bounceIn");
+    });
+    $currentPage.addClass("bounceOut");
+    // 同步当前页面
+    currentPageId = id;
+}
+</script>
 </body>
 </html>
