@@ -221,7 +221,7 @@ nav {
     </div>
 </div>
 
-<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 <script type="text/javascript">
 // 当前页面id
 var currentPageId = "js-user-info";
@@ -242,13 +242,6 @@ var switchPage = function (e, id) {
     // 同步当前页面
     currentPageId = id;
 };
-
-document.getElementById("js-user-info").addEventListener("touchstart", function (event) {
-    switchPage(event, "js-arts");
-}, false);
-document.getElementById("js-arts").addEventListener("touchstart", function (event) {
-    switchPage(event, "js-user-info");
-}, false);
 </script>
 </body>
 </html>
