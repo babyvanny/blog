@@ -12,6 +12,10 @@ function pageMain()
 			$(".cd").addClass("flash");
 		});
 	}
+	// has audio
+	playAudio();
+	// has video
+	playVideo();
 }
 function pageOut()
 {
@@ -20,62 +24,36 @@ function pageOut()
 		$(".cd").removeClass("flash");
 	}
 }
+function playVideo()
+{
+	var videos = document.getElementById("videoTag");
+	//videos.loop = 'loop';//如果需要循环
+    try{videos.play();}catch(e){}
+}
+function playAudio()
+{
+	var audios = document.getElementById("audioTag");
+	//audios.loop = 'loop';//如果需要循环
+    try{audios.play();}catch(e){}
+}
 
+// 判断浏览器
+$(function(){
+	var _bow = navigator.userAgent;
+	if(_bow.indexOf("iPhone")!==-1){
+		$("#iphone").addClass ("iphone");
+	}
+});
 // 添加删除class
 $(function() {
-    $(".index .pop_bt").click(function () {
-        if ($(".index").hasClass("on")) {
-            $(".index").addClass("off").removeClass("on")
+    $(".pop_bt").click(function () {
+        if ($("#pop_bx").hasClass("on")) {
+            $("#pop_bx").addClass("off").removeClass("on")
         } else {
-            $(".index").addClass("on").removeClass("off")
+            $("#pop_bx").addClass("on").removeClass("off")
         }
     });
 });
 
-$(function() {
-    $(".list .pop_bt").click(function () {
-        if ($(".list").hasClass("on")) {
-            $(".list").addClass("off").removeClass("on")
-        } else {
-            $(".list").addClass("on").removeClass("off")
-        }
-    });
-});
-
-$(function() {
-    $(".bnt").click(function () {
-        if ($(".list").hasClass("en")) {
-            $(".list").addClass("zh").removeClass("en");
-            $(".zhongwen").show();
-            $(".english").hide();
-
-        } else {
-            $(".list").addClass("en").removeClass("zh");
-            $(".zhongwen").hide();
-            $(".english").show();
-        }
-    });
-});
-
-
-
-$(function() {
-    $(".info .pop_bt").click(function () {
-        if ($(".info").hasClass("on")) {
-            $(".info").addClass("off").removeClass("on")
-        } else {
-            $(".info").addClass("on").removeClass("off")
-        }
-    });
-});
-
-$(function() {
-    $(".pg .pop_bt").click(function () {
-        if ($(".pg").hasClass("on")) {
-            $(".pg").addClass("off").removeClass("on")
-        } else {
-            $(".pg").addClass("on").removeClass("off")
-        }
-    });
-});
 pageMain();
+
